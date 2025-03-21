@@ -1,0 +1,18 @@
+services:
+  # Backend Configuration
+  - name: job-portal-backend
+    type: web
+    env: node
+    plan: free
+    region: oregon
+    buildCommand: npm install
+    startCommand: node server.js
+    envVars:
+      - key: MONGO_URI
+        value: MONGO_URI=mongodb://localhost:27017/jobportal
+      - key: PORT
+        value: 5000
+      - key: JWT_SECRET
+        sync: false
+
+  
